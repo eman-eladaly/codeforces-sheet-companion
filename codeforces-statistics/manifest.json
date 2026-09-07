@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Codeforces Statistics",
+  "name": "codeforces-sheet-companion",
   "version": "2.0.0",
   "description": "Injects solved-here / solved-elsewhere statistics directly into Codeforces group, contest and problemset pages.",
   "icons": {
