@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Codeforces Sheet Companion",
+  "version": "2.0.0",
+  "description": "Injects solved-here / solved-elsewhere statistics directly into Codeforces group, contest and problemset pages.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://codeforces.com/*",
+    "https://*.codeforces.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://codeforces.com/*",
+        "https://*.codeforces.com/*"
+      ],
+      "js": [
+        "src/core/matching.js",
+        "src/core/stats.js",
+        "src/core/errors.js",
+        "src/content/page-context.js",
+        "src/content/problem-parser.js",
+        "src/content/sheet-submissions.js",
+        "src/content/render.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false,
+      "css": [
+        "src/content/styles.css"
+      ]
+    }
+  ]
+}

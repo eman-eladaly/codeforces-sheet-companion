@@ -1,0 +1,282 @@
+/*
+ * Codeforces Statistics — styles.
+ *
+ * Every selector is scoped under .cf-stats-extension or .cf-stats-*, so no
+ * Codeforces rule is overwritten and nothing leaks out. Typography is inherited
+ * from the page on purpose: no font-family is declared anywhere below.
+ */
+
+#cf-stats-root.cf-stats-extension {
+  --cf-stats-here: #1a7f37;
+  --cf-stats-elsewhere: #2d5f9a;
+  --cf-stats-unknown: #96700f;
+  --cf-stats-unsolved: #9a9a9a;
+  --cf-stats-line: rgba(0, 0, 0, 0.12);
+  --cf-stats-quiet: #777;
+  /* No clear:both. Codeforces floats #sidebar, so clearing dropped this
+     section all the way below the sidebar and left a page-tall gap after the
+     last problem. In normal flow it sits directly under the problem table. */
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  margin: 0.5em 0 0;
+}
+
+#cf-stats-root.cf-stats-extension * { box-sizing: border-box; }
+
+.cf-stats-extension .cf-stats-caption-note {
+  font-weight: normal;
+  font-size: 0.85em;
+  color: var(--cf-stats-quiet);
+}
+
+.cf-stats-extension .cf-stats-body {
+  padding: 0.5em 0.8em 0.6em;
+}
+
+/* ---------------------------------------------------------- sheet head --- */
+
+.cf-stats-extension .cf-stats-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.6em;
+  margin-bottom: 0.55em;
+}
+
+.cf-stats-extension h3.cf-stats-sheet {
+  margin: 0;
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.cf-stats-extension .cf-stats-sheet-sub {
+  font-size: 0.82em;
+  color: var(--cf-stats-quiet);
+}
+
+/* ------------------------------------------------------------ progress --- */
+
+.cf-stats-extension .cf-stats-progress { max-width: 30em; }
+
+.cf-stats-extension .cf-stats-figures {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+  margin-bottom: 5px;
+}
+
+.cf-stats-extension .cf-stats-fraction {
+  font-size: 1.05em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cf-stats-extension .cf-stats-solvedword { font-size: 0.85em; color: var(--cf-stats-quiet); }
+
+.cf-stats-extension .cf-stats-percent {
+  margin-left: auto;
+  font-size: 0.95em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--cf-stats-quiet);
+}
+
+.cf-stats-extension .cf-stats-bar {
+  display: flex;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.cf-stats-extension .cf-stats-seg { display: block; height: 100%; }
+.cf-stats-extension .cf-stats-seg-here { background: var(--cf-stats-here); }
+.cf-stats-extension .cf-stats-seg-elsewhere { background: var(--cf-stats-elsewhere); }
+.cf-stats-extension .cf-stats-seg-unknown { background: var(--cf-stats-unknown); }
+
+/* --------------------------------------------------------------- chips --- */
+
+.cf-stats-extension ul.cf-stats-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em 1.4em;
+  margin: 0.7em 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9em;
+}
+
+.cf-stats-extension ul.cf-stats-chips li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+}
+
+.cf-stats-extension .cf-stats-chip-num { font-variant-numeric: tabular-nums; font-weight: 600; }
+.cf-stats-extension .cf-stats-chip-label { color: var(--cf-stats-quiet); }
+.cf-stats-extension ul.cf-stats-chips .cf-stats-glyph { font-weight: 700; }
+.cf-stats-extension li[data-k="here"] .cf-stats-glyph { color: var(--cf-stats-here); }
+.cf-stats-extension li[data-k="elsewhere"] .cf-stats-glyph { color: var(--cf-stats-elsewhere); }
+.cf-stats-extension li[data-k="unknown"] .cf-stats-glyph { color: var(--cf-stats-unknown); }
+.cf-stats-extension li[data-k="unsolved"] .cf-stats-glyph { color: var(--cf-stats-unsolved); }
+
+/* -------------------------------------------------------- next to solve -- */
+
+.cf-stats-extension .cf-stats-block {
+  margin-top: 0.85em;
+  padding-top: 0.6em;
+  border-top: 1px solid var(--cf-stats-line);
+}
+
+.cf-stats-extension h4.cf-stats-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  margin: 0 0 0.35em;
+  font-size: 0.95em;
+  font-weight: 600;
+}
+
+.cf-stats-extension .cf-stats-count,
+.cf-stats-extension .cf-stats-note {
+  font-weight: normal;
+  font-size: 0.85em;
+  color: var(--cf-stats-quiet);
+}
+
+.cf-stats-extension ol.cf-stats-next {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 40em;
+}
+
+.cf-stats-extension ol.cf-stats-next li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+  padding: 2px 0;
+  line-height: 1.5;
+}
+
+.cf-stats-extension .cf-stats-next-link {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55em;
+  min-width: 0;
+  flex: 1;
+}
+
+.cf-stats-extension .cf-stats-idx {
+  min-width: 1.9em;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85em;
+  color: var(--cf-stats-quiet);
+}
+
+.cf-stats-extension .cf-stats-next-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cf-stats-extension .cf-stats-rating {
+  font-size: 0.85em;
+  font-variant-numeric: tabular-nums;
+  color: var(--cf-stats-quiet);
+}
+
+.cf-stats-extension .cf-stats-rating-none { opacity: 0.5; }
+
+.cf-stats-extension .cf-stats-scroll {
+  max-height: 13em;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.cf-stats-extension .cf-stats-more,
+.cf-stats-extension .cf-stats-action {
+  margin-top: 0.4em;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cf-stats-extension .cf-stats-more:hover,
+.cf-stats-extension .cf-stats-action:hover { color: var(--cf-stats-elsewhere); }
+
+.cf-stats-extension .cf-stats-done {
+  margin: 0.8em 0 0;
+  padding-top: 0.6em;
+  border-top: 1px solid var(--cf-stats-line);
+  color: var(--cf-stats-here);
+  font-size: 0.9em;
+}
+
+/* -------------------------------------------------------------- footer --- */
+
+.cf-stats-extension .cf-stats-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1em;
+  margin-top: 0.7em;
+  padding-top: 0.45em;
+  border-top: 1px solid var(--cf-stats-line);
+  font-size: 0.85em;
+}
+
+.cf-stats-extension .cf-stats-footer .cf-stats-action { margin-top: 0; }
+
+.cf-stats-extension .cf-stats-toggle {
+  margin-left: auto;
+  color: var(--cf-stats-quiet);
+  cursor: pointer;
+}
+
+.cf-stats-extension .cf-stats-toggle input { vertical-align: middle; margin: 0 2px 0 0; }
+
+.cf-stats-extension .cf-stats-message { margin: 0.5em 0 0; font-size: 0.9em; }
+.cf-stats-extension .cf-stats-error { color: #b3261e; }
+.cf-stats-extension p.cf-stats-note { color: var(--cf-stats-quiet); }
+
+/* --------------------------------------------------------- narrow screens */
+
+@media (max-width: 760px) {
+  .cf-stats-extension ul.cf-stats-chips { gap: 0.3em 1em; }
+  .cf-stats-extension .cf-stats-next-name { max-width: 55vw; }
+  .cf-stats-cell .cf-stats-status-text { display: none; }
+}
+
+/* ------------------------------------- status cells in the problem table -- */
+
+.cf-stats-cell {
+  white-space: nowrap;
+  font-size: 0.9em;
+}
+
+.cf-stats-cell-head { font-size: inherit; }
+.cf-stats-cell .cf-stats-glyph { font-weight: bold; }
+.cf-stats-cell-here { color: #1a7f37; }
+.cf-stats-cell-elsewhere { color: #2d5f9a; }
+.cf-stats-cell-unknown { color: #96700f; }
+.cf-stats-cell-unsolved { color: #9a9a9a; }
+
+/* --------------------------------------------------------- narrow screens */
+
+@media (max-width: 760px) {
+  .cf-stats-extension .cf-stats-columns { display: block; }
+  .cf-stats-extension ul.cf-stats-unsolved { columns: 1; }
+  .cf-stats-extension .cf-stats-hint { display: none; }
+  .cf-stats-cell .cf-stats-status-text { display: none; }
+}
